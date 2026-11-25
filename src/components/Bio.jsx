@@ -31,7 +31,7 @@ export default function Bio() {
             </div>
             <div className="spec-item">
               <span className="spec-label mono">STATUS</span>
-              <span className="spec-value text-emerald">{personalInfo.status}</span>
+              <span className="spec-value">{personalInfo.status}</span>
             </div>
           </div>
         </div>
@@ -39,7 +39,7 @@ export default function Bio() {
         {/* Right Column: Distinctions & Highlights */}
         <div className="about-highlights">
           <div className="highlights-header">
-            <Award size={16} className="text-emerald" />
+            <Award size={16} />
             <span className="highlights-title mono">MILESTONES &amp; DISTINCTIONS</span>
           </div>
 

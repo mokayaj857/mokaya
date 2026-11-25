@@ -47,10 +47,6 @@ export default function Contact() {
                 </span>
                 <span className="dic-label mono">DIRECT INBOX</span>
               </div>
-              <span className="dic-status mono">
-                <span className="status-dot-pulse"></span>
-                <span>Active • UTC+3</span>
-              </span>
             </div>
 
             <a

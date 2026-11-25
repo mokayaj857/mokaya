@@ -3,7 +3,7 @@ import { Terminal as TerminalIcon, X, CornerDownLeft } from 'lucide-react';
 import { projects } from '../data/portfolioData';
 import { sound } from '../utils/sound';
 
-export default function DeveloperTerminal({ isOpen, onClose, theme, toggleTheme, soundEnabled, toggleSound }) {
+export default function DeveloperTerminal({ isOpen, onClose, theme, toggleTheme, soundEnabled, toggleSound, onOpenPhotoDump }) {
   const [inputVal, setInputVal] = useState('');
   const [history, setHistory] = useState([
     {
@@ -55,6 +55,7 @@ export default function DeveloperTerminal({ isOpen, onClose, theme, toggleTheme,
           type: 'response',
           text: `AVAILABLE COMMANDS:
   projects   - List the 7 production protocols & systems (VERIA, Trepa, bitfund, BIMA, SkillReceipt, Hashmark, Seti)
+  photos     - Open John's visual Photo Dump (Google Photos archive)
   vms        - Inspect the 5 blockchain virtual machines (Base L2, Sui, Bitcoin/Nostr, Hedera, Stellar)
   nairobi    - Coordinates, local time, and civic tech vision
   bio        - John Mokaya's engineering narrative and background
@@ -92,6 +93,16 @@ Tip: Type any project name (e.g., "hashmark", "seti", "veria") to inspect detail
   3. Bitcoin/Nostr -> NIP-01 / Lightning Network (Sovereign Relays & Micro-Zaps)
   4. Hedera        -> Hashgraph HCS + HTS (aBFT Consensus, Land Titles)
   5. Stellar       -> Soroban WASM / Rust (Formal Auth, Milestone Escrows)`
+        });
+        break;
+
+      case 'photos':
+      case 'photodump':
+        if (onOpenPhotoDump) onOpenPhotoDump();
+        newHistory.push({
+          type: 'response',
+          text: `LAUNCHING PHOTO DUMP:
+Opening John Mokaya's visual archive & photography snapshots (Nairobi, hackathons, and hardware labs).`
         });
         break;
 

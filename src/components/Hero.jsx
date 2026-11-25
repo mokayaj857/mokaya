@@ -28,7 +28,6 @@ export default function Hero() {
     <section className="hero-section" id="top">
       {/* Availability Status Badge */}
       <div className="status-badge">
-        <span className="status-dot"></span>
         <span className="status-text">{personalInfo.status}</span>
       </div>
 

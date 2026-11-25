@@ -183,7 +183,6 @@ export default function EngineeringFocus() {
 
       {/* Dynamic Hover Inspector HUD */}
       <div className="stack-inspector-bar mono">
-        <div className="sib-status-dot"></div>
         {hoveredTech ? (
           <div className="sib-content active">
             <span className="sib-name">{hoveredTech.name}</span>

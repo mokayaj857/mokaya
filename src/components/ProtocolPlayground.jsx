@@ -200,7 +200,7 @@ impl EscrowContract {
           <div className="pg-console-header">
             <div className="pg-header-meta">
               <span className="pg-chip mono">{currentVm.vm}</span>
-              <span className="pg-chip mono text-emerald">{currentVm.language}</span>
+              <span className="pg-chip mono">{currentVm.language}</span>
               <span className="pg-project-link">
                 Showcase Project: <strong>{currentVm.project.name}</strong>
               </span>
@@ -254,7 +254,7 @@ impl EscrowContract {
             </div>
             <div className="pg-footer-col">
               <span className="pg-footer-lbl mono">CORE SECURITY INVARIANT:</span>
-              <p className="pg-footer-val text-emerald">{currentVm.invariant}</p>
+              <p className="pg-footer-val">{currentVm.invariant}</p>
             </div>
           </div>
         </div>

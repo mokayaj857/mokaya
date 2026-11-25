@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Search, ExternalLink, Volume2, VolumeX, Moon, Sun, Mail, Check, X } from 'lucide-react';
 import { projects, personalInfo } from '../data/portfolioData';
 import { sound } from '../utils/sound';
+import { GooglePhotosIcon } from './Icons';
 
-export default function CommandPalette({ onClose, theme, toggleTheme, soundEnabled, toggleSound }) {
+export default function CommandPalette({ onClose, theme, toggleTheme, soundEnabled, toggleSound, onOpenPhotoDump }) {
   const [query, setQuery] = useState('');
   const [_selectedIndex, setSelectedIndex] = useState(0);
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -36,6 +37,16 @@ export default function CommandPalette({ onClose, theme, toggleTheme, soundEnabl
   );
 
   const quickActions = [
+    {
+      id: 'photo-dump',
+      icon: <GooglePhotosIcon size={16} />,
+      title: 'Open Photo Dump (Visual Archive & Photography)',
+      action: () => {
+        onClose();
+        if (onOpenPhotoDump) onOpenPhotoDump();
+        sound.playClick();
+      }
+    },
     {
       id: 'copy-email',
       icon: copiedEmail ? <Check size={16} className="text-emerald" /> : <Mail size={16} />,

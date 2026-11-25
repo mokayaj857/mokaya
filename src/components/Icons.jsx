@@ -88,3 +88,37 @@ export function GmailIcon({ size = 20, className = '' }) {
     </svg>
   );
 }
+
+export function GooglePhotosIcon({ size = 22, className = '' }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 192 192"
+      className={className}
+      aria-label="Google Photos"
+    >
+      <title>Photo Dump</title>
+      {/* Top Petal - Red */}
+      <path
+        fill="#EA4335"
+        d="M96 96V36c0-16.57-13.43-30-30-30s-30 13.43-30 30 13.43 30 30 30h30z"
+      />
+      {/* Left Petal - Blue */}
+      <path
+        fill="#4285F4"
+        d="M96 96H36c-16.57 0-30 13.43-30 30s13.43 30 30 30 30-13.43 30-30V96z"
+      />
+      {/* Bottom Petal - Green */}
+      <path
+        fill="#34A853"
+        d="M96 96v60c0 16.57 13.43 30 30 30s30-13.43 30-30-13.43-30-30-30H96z"
+      />
+      {/* Right Petal - Yellow */}
+      <path
+        fill="#FBBC05"
+        d="M96 96h60c16.57 0 30-13.43 30-30s-13.43-30-30-30-30 13.43-30 30v30z"
+      />
+    </svg>
+  );
+}

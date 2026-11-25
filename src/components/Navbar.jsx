@@ -41,7 +41,6 @@ export default function Navbar({
       <div className="navbar-pill">
         {/* Brand */}
         <a href="#top" className="nav-brand" onClick={(e) => handleLinkClick(e, '#top')}>
-          <span className="brand-dot"></span>
           <span className="brand-name">{personalInfo.name}</span>
         </a>
 

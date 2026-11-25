@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import DeveloperTerminal from './components/DeveloperTerminal';
 import CommandPalette from './components/CommandPalette';
 import CustomCursor from './components/CustomCursor';
+import PhotoDumpModal, { FloatingPhotoDumpButton } from './components/PhotoDumpModal';
 import { sound } from './utils/sound';
 import { Terminal, Search, Volume2, VolumeX } from 'lucide-react';
 import './App.css';
@@ -24,6 +25,7 @@ export default function App() {
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [terminalOpen, setTerminalOpen] = useState(false);
   const [paletteOpen, setPaletteOpen] = useState(false);
+  const [photoDumpOpen, setPhotoDumpOpen] = useState(false);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -95,7 +97,7 @@ export default function App() {
         <Footer />
       </main>
 
-      {/* Floating Interactive Dock (Quick HUD) */}
+      {/* Floating Interactive Dock (Quick HUD - Bottom Right) */}
       <div className="floating-hud-dock">
         <button
           type="button"
@@ -129,18 +131,29 @@ export default function App() {
           onClick={toggleSound}
           title={soundEnabled ? 'Tactile Sound: ON (Click to mute)' : 'Tactile Sound: MUTED (Click to enable)'}
         >
-          {soundEnabled ? <Volume2 size={13} className="text-emerald" /> : <VolumeX size={13} />}
+          {soundEnabled ? <Volume2 size={13} /> : <VolumeX size={13} />}
         </button>
       </div>
+
+      {/* Floating Photo Dump Widget (Bottom Left - Google Photos Pinwheel) */}
+      <FloatingPhotoDumpButton onClick={() => setPhotoDumpOpen(true)} />
+
+      {/* Modal: Photo Dump Gallery */}
+      <PhotoDumpModal
+        isOpen={photoDumpOpen}
+        onClose={() => setPhotoDumpOpen(false)}
+      />
 
       {/* Modal: Developer Terminal */}
       {terminalOpen && (
         <DeveloperTerminal
+          isOpen={terminalOpen}
           onClose={() => setTerminalOpen(false)}
           theme={theme}
           toggleTheme={toggleTheme}
           soundEnabled={soundEnabled}
           toggleSound={toggleSound}
+          onOpenPhotoDump={() => setPhotoDumpOpen(true)}
         />
       )}
 
@@ -152,6 +165,7 @@ export default function App() {
           toggleTheme={toggleTheme}
           soundEnabled={soundEnabled}
           toggleSound={toggleSound}
+          onOpenPhotoDump={() => setPhotoDumpOpen(true)}
         />
       )}
     </div>
